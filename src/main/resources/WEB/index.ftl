@@ -5,5 +5,6 @@
     <body>
         <h1>${hello} ${world}</h1>
         <h2>${bookBean.number} ${bookBean.name}</h2>
+        <a href="/web/all">Fruits</a>
     </body>
 </html>
