@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import org.glassfish.jersey.server.mvc.Viewable;
 import org.slf4j.Logger;
 
+import io.helidon.webserver.mp.entity.BookBean;
+
 @Path("/web")
 @RequestScoped
 public class WebResource {
@@ -24,11 +26,17 @@ public class WebResource {
 	@Path("/index")
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public Viewable getResource() {
-		logger.info("######getResource()######");
-		Map<String, String> model = new HashMap<>();
+	public Viewable goIndex() {
+		logger.info("######goIndex()######");
+		Map<String, Object> model = new HashMap<>();
 		model.put("hello", "Hello");
 		model.put("world", "World");
+
+		BookBean bookBean = new BookBean();
+		bookBean.setNumber(101);
+		bookBean.setName("Helidon Quickstart");
+		model.put("bookBean", bookBean);
+
 		return new Viewable("/index", model);
 	}
 
