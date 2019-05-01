@@ -1,7 +1,7 @@
 
 # Helidon Freemarker MP Example
 
-This example implements a simple Hello World Web Application using Helidon + Freemarker + MicroProfile
+This example implements a simple Hello World Web Application using Helidon + MicroProfile + Freemarker
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ mvn package
 ## Start the application
 
 ```
-java -jar target/helidon-webserver-mp.jar
+java -jar target/helidon-mp-mvc-freemarker.jar
 ```
 
 ## Exercise the application
