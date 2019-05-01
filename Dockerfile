@@ -36,9 +36,9 @@ FROM openjdk:8-jre-slim
 WORKDIR /helidon
 
 # Copy the binary built in the 1st stage
-COPY --from=build /helidon/target/helidon-webserver-mp.jar ./
+COPY --from=build /helidon/target/helidon-mp-mvc-freemarker.jar ./
 COPY --from=build /helidon/target/libs ./libs
 
-CMD ["java", "-jar", "helidon-webserver-mp.jar"]
+CMD ["java", "-jar", "helidon-mp-mvc-freemarker.jar"]
 
 EXPOSE 8080
