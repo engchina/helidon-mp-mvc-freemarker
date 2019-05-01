@@ -17,13 +17,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: helidon-webserver-mp
+  name: helidon-mp-mvc-freemarker
   labels:
-    app: helidon-webserver-mp
+    app: helidon-mp-mvc-freemarker
 spec:
   type: NodePort
   selector:
-    app: helidon-webserver-mp
+    app: helidon-mp-mvc-freemarker
   ports:
   - port: 8080
     targetPort: 8080
@@ -32,18 +32,18 @@ spec:
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: helidon-webserver-mp
+  name: helidon-mp-mvc-freemarker
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: helidon-webserver-mp
+        app: helidon-mp-mvc-freemarker
         version: v1
     spec:
       containers:
-      - name: helidon-webserver-mp
-        image: helidon-webserver-mp
+      - name: helidon-mp-mvc-freemarker
+        image: helidon-mp-mvc-freemarker
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
