@@ -1,10 +1,9 @@
 <html>
     <head>
-        <title>Freemarker Page</title>
+        <title>Hello World</title>
     </head>
     <body>
         <h1>${hello} ${world}</h1>
-        <h2>${bookBean.number} ${bookBean.name}</h2>
-        <a href="/web/all">Fruits</a>
+        <a href="/web/helidon">Helidon Sites</a>
     </body>
 </html>

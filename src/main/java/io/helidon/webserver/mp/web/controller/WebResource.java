@@ -12,13 +12,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
 import org.glassfish.jersey.server.mvc.Viewable;
 import org.slf4j.Logger;
 
-import io.helidon.webserver.mp.entity.BookBean;
-import io.helidon.webserver.mp.entity.Fruit;
+import io.helidon.webserver.mp.entity.HelidonBean;
 
 @Path("/web")
 @RequestScoped
@@ -32,33 +30,33 @@ public class WebResource {
 	@GET
 	@Produces(MediaType.TEXT_HTML)
 	public Viewable goIndex() {
+
 		logger.info("######goIndex()######");
 		Map<String, Object> model = new HashMap<>();
 		model.put("hello", "Hello");
 		model.put("world", "World");
 
-		BookBean bookBean = new BookBean();
-		bookBean.setNumber(101);
-		bookBean.setName("Helidon Quickstart");
-		model.put("bookBean", bookBean);
-
 		return new Viewable("/index", model);
 	}
 
 	@GET
-	@ErrorTemplate(name = "/error.ftl")
-	@Template(name = "/all.ftl")
-	@Path("/all")
+	// @ErrorTemplate(name = "/error.ftl")
+	@Template(name = "/helidon.ftl")
+	@Path("/helidon")
 	@Produces(MediaType.TEXT_HTML)
-	public Map<String, Object> getAllFruit() {
-		logger.info("######getAllFruit()######");
-		List<Fruit> fruits = new ArrayList<>();
-		fruits.add(new Fruit("banana", "yellow"));
-		fruits.add(new Fruit("apple", "red"));
-		fruits.add(new Fruit("kiwi", "green"));
+	public Map<String, Object> getAllHelidonSites() {
+
+		logger.info("######getAllHelidonSites()######");
+		List<HelidonBean> helidonSites = new ArrayList<>();
+
+		helidonSites.add(new HelidonBean("Helidon Project", "https://helidon.io"));
+		helidonSites.add(new HelidonBean("Helidon Docs", "https://helidon.io/docs"));
+		helidonSites.add(new HelidonBean("Helidon API Docs",
+				"https://helidon.io/docs/latest/apidocs/index.html?overview-summary.html"));
+		helidonSites.add(new HelidonBean("Helidon Github", "https://github.com/oracle/helidon"));
 
 		Map<String, Object> model = new HashMap<>();
-		model.put("items", fruits);
+		model.put("helidonSites", helidonSites);
 		return model;
 	}
 

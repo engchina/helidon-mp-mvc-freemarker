@@ -34,10 +34,10 @@
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<!-- <Encoding>UTF-8</Encoding> -->
-		<file>${LOG_HOME}/helidon-webserver-mp.log</file>
+		<file>${LOG_HOME}/helidon-mp-mvc-freemarker.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${LOG_HOME}/helidon-webserver-mp.%d{yyyy-MM-dd}.log.zip
+			<FileNamePattern>${LOG_HOME}/helidon-mp-mvc-freemarker.%d{yyyy-MM-dd}.log.zip
 			</FileNamePattern>
 			<MaxHistory>7</MaxHistory>
 		</rollingPolicy>
